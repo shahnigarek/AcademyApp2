@@ -246,11 +246,7 @@ namespace Manage.Controllers
             } 
         }
         
-        public void Exit()
-        {
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Thanks for using application");
-
-        }
+       
        
 
 

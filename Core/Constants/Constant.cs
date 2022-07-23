@@ -9,21 +9,17 @@ namespace Core.Constants
     public enum Options
 
     {
-        CreateGroup=1,
+        Exit,
+        CreateGroup,
         UpdateGroup,
         DeleteGroup,
         AllGroups,
         GetGroupByName,
-    }
-    public enum Options2
-    {
-        Exit,
         CreateStudent,
         UpdateStudent,
         DeleteStudent,
         GetAllStudentsByGroup,
         GetStudentByGroup,
-
-
     }
+   
 }

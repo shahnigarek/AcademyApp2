@@ -91,12 +91,13 @@ namespace Manage.Controllers
         {
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter group name:");
             string name = Console.ReadLine();
+
             var group = _groupRepository.Get(g => g.Name.ToLower() == name.ToLower());
             if (group != null)
             {
                 int OldSize = group.MaxSize;
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group name:");
-                string newname = Console.ReadLine();
+                string newName = Console.ReadLine();
 
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group maxSize:");
                 string newsize = Console.ReadLine();
@@ -109,20 +110,26 @@ namespace Manage.Controllers
                     var newGroup = new Group
                     {
                         ID = group.ID,
-                        Name = group.Name,
+                        Name = newName,
                         MaxSize = maxSize
                     };
                     _groupRepository.Update(newGroup);
 
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{name},maxSize:{maxSize} is updated");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{name}, Max size: {OldSize} is updated to Name: {newGroup.Name}, Max size : {newGroup.MaxSize} ");
 
 
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right maxSize");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right group maxSize");
                 }
 
+
+
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct group name");
             }
 
         }
