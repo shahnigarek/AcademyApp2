@@ -13,13 +13,16 @@ namespace Manage
             StudentController _studentController = new StudentController();
             AdminController _adminController = new AdminController();
             GroupController _groupController = new GroupController();
+            AdminRepository _adminRepository = new AdminRepository();
 
-        Authentication: var admin = _adminController.Autenticate();
+          Authentication: var admin = _adminController.Autenticate();
+
 
             if (admin != null)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Welcome");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Welcome , {admin.Username}");
                 Console.WriteLine();
+
                 while (true)
                 {
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "1-Create a group");
@@ -103,6 +106,7 @@ namespace Manage
         }
     }
 }
+            
 
 
 

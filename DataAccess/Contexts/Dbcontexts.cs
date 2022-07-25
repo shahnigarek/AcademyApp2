@@ -17,6 +17,7 @@ namespace DataAccess.Contexts
             Students = new List<Student>();
             Groups=new List<Group> (); 
             Admins=new List<Admin> ();
+
             string password = "academyapp";
             var hashedPassword = PasswordHasher.Encrypt(password);
             Admin admin1=new Admin("admin1",hashedPassword);

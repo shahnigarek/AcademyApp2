@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Helpers;
 using DataAccess.Repositories.Implementations;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,15 @@ namespace Manage.Controllers
         }
         public Admin Autenticate()
         {
-            ConsoleHelper.WriteTextWithColor()
+            AdminAuthentication: ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter username");
+            string username = Console.ReadLine();
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Please enter password");
+            string password = Console.ReadLine();
+
+            var admin = _adminRepository.Get(a => a.Username.ToLower() == username.ToLower() && PasswordHasher.Decrypt(a.Password) == password);
+
+            return admin;
+
         }
     }
 }
