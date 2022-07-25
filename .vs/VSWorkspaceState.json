@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AcademyApp",
+    "\\DataAccess"
   ],
-  "SelectedNode": "\\Manage.sln",
+  "SelectedNode": "\\AcademyApp\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
