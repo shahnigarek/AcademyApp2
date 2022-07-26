@@ -9,20 +9,20 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repositories.Implementations
 {
-    public class AdminRepository:IRepository<Admin>
+    public class TeacherRepository : IRepository<Teacher>
     {
         private static int id;
-        public Admin Create(Admin entity)
+        public Teacher  Create(Teacher entity)
         {
 
             id++;
-            entity.ID = id;
+            entity.Id = id;
             try
             {
-            Dbcontexts.Admins.Add(entity);
+                Dbcontexts.Teacher.Add(entity);
 
             }
-            catch (Exception )
+            catch (Exception)
             {
 
                 Console.WriteLine("Something went wrong");
@@ -31,32 +31,33 @@ namespace DataAccess.Repositories.Implementations
 
         }
 
-        public void Delete(Admin entity)
+        public void Delete(Teacher entity)
         {
             try
             {
+                Dbcontexts.Teacher.Remove(entity);
 
-            Dbcontexts.Admins.Remove(entity);
             }
             catch (Exception)
             {
 
                 Console.WriteLine("Something went wrong");
             }
+
         }
 
-        public Admin Get(Predicate<Admin> filter = null)
+        public Teacher Get(Predicate<Teacher> filter = null)
         {
             try
             {
-            if (filter == null)
-            {
-                return Dbcontexts.Admins[0];
-            }
-            else
-            {
-                return Dbcontexts.Admins.Find(filter);
-            }
+                if (filter == null)
+                {
+                    return Dbcontexts.Teacher[0];
+                }
+                else
+                {
+                    return Dbcontexts.Teacher.Find(filter);
+                }
 
             }
             catch (Exception)
@@ -65,22 +66,23 @@ namespace DataAccess.Repositories.Implementations
                 Console.WriteLine("Something went wrong");
                 return null;
             }
-
         }
 
-        public List<Admin> GetAll(Predicate<Admin> filter = null)
+        public List<Teacher> GetAll(Predicate<Teacher> filter = null)
         {
             try
             {
-            if (filter == null)
-            {
-                return Dbcontexts.Admins;
 
-            }
-            else
-            {
-                return Dbcontexts.Admins.FindAll(filter);
-            }
+
+                if (filter == null)
+                {
+                    return Dbcontexts.Teacher;
+
+                }
+                else
+                {
+                    return Dbcontexts.Teacher.FindAll(filter);
+                }
 
             }
             catch (Exception)
@@ -90,18 +92,19 @@ namespace DataAccess.Repositories.Implementations
             }
         }
 
-        public void Update(Admin entity)
+        public void Update(Teacher entity)
         {
+
             try
             {
-            var admin = Dbcontexts.Admins.Find(a => a.ID == entity.ID);
-            if (admin != null)
-            {
-                
-                admin.Username = entity.Username;
-                admin.Password = entity.Password;   
-
-            }
+                var teacher = Dbcontexts.Students.Find(t => t.ID == entity.Id);
+                if (teacher != null)
+                {
+                    
+                    teacher.ID = entity.Id;
+                    teacher.Surname = entity.Surname;
+                    teacher.Age = entity.Age;
+                }
 
             }
             catch (Exception)
@@ -110,11 +113,11 @@ namespace DataAccess.Repositories.Implementations
                 Console.WriteLine("Something went wrong");
             }
         }
+         
 
-        void IRepository<Admin>.Create(Admin entity)
+        void IRepository<Teacher>.Create(Teacher entity)
         {
             throw new NotImplementedException();
         }
     }
 }
-

@@ -17,6 +17,7 @@ namespace DataAccess.Contexts
             Students = new List<Student>();
             Groups=new List<Group> (); 
             Admins=new List<Admin> ();
+            Teacher=new List<Teacher> ();   
 
             string password = "academyapp";
             var hashedPassword = PasswordHasher.Encrypt(password);
@@ -35,6 +36,8 @@ namespace DataAccess.Contexts
         public static List<Student> Students { get; set; }
         public static List<Group> Groups { get; set; }
         public static List<Admin> Admins { get; set; }
+        public static List<Teacher> Teacher { get; set; }
+
 
     }
 

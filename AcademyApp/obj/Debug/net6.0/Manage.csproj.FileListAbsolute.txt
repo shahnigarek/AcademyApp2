@@ -98,3 +98,23 @@ C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp\bin\Debug\n
 C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.csproj.CopyComplete
 C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.genruntimeconfig.cache
 C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp\obj\Debug\net6.0\ref\Manage.dll
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Manage.exe
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Manage.deps.json
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Manage.runtimeconfig.json
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Manage.dll
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Manage.pdb
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Core.dll
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\DataAccess.dll
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\Core.pdb
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.csproj.AssemblyReference.cache
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.AssemblyInfoInputs.cache
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.AssemblyInfo.cs
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.csproj.CoreCompileInputs.cache
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.csproj.CopyComplete
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.dll
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\refint\Manage.dll
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.pdb
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\Manage.genruntimeconfig.cache
+C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp\obj\Debug\net6.0\ref\Manage.dll

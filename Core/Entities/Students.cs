@@ -1,4 +1,5 @@
 ﻿using Core.Abstarctions;
+using Core.Entities.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Student:IEntity
+    public class Student:Person,IEntity
     {
         public int ID { get; set; }
 
@@ -21,5 +22,5 @@ namespace Core.Entities
       
 
 
-        }
+    }
 }

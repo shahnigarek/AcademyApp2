@@ -46,19 +46,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ROG\\.nuget\\packages\\": {}
+    "C:\\Users\\shahnigarek\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp\\Manage.csproj",
+      "projectUniqueName": "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\AcademyApp\\Manage.csproj",
       "projectName": "Manage",
-      "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp\\Manage.csproj",
-      "packagesPath": "C:\\Users\\ROG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp\\obj\\",
+      "projectPath": "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\AcademyApp\\Manage.csproj",
+      "packagesPath": "C:\\Users\\shahnigarek\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\AcademyApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ROG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\shahnigarek\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -72,11 +72,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\Core\\Core.csproj"
+            "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj"
             },
-            "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\shahnigarek\\Desktop\\AcademyApp2\\AcademyApp2\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -100,12 +100,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

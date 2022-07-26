@@ -20,17 +20,37 @@ namespace DataAccess.Repositories.Implementations
         {
             id++;
             entity.ID = id;
+            try
+            {
             Dbcontexts.Groups.Add(entity);
+
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Something went wrong");
+            }
             return entity;  
         }
 
         public void Delete(Group entity)
         {
+            try
+            {
             Dbcontexts.Groups.Remove(entity);
+
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Something went wrong");
+            }
         }
 
         public void Update(Group entity)
         {
+            try
+            {
             var group = Dbcontexts.Groups.Find(g => g.ID == entity.ID);
             if (group != null)
             {
@@ -39,9 +59,19 @@ namespace DataAccess.Repositories.Implementations
                 group.ID = entity.ID;
             }
 
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Something went wrong");
+            }
+                
+
         }
         public Group Get(Predicate<Group> filter = null)
         {
+            try
+            {
             if (filter == null)
             {
                 return Dbcontexts.Groups[0];
@@ -52,10 +82,22 @@ namespace DataAccess.Repositories.Implementations
                 return Dbcontexts.Groups.Find(filter);
             }
 
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Something went wrong");
+                return null;
+            }
+
+
         }
 
         public List<Group> GetAll(Predicate<Group> filter = null)
         {
+            try
+            {
+
             if (filter == null)
             {
                 return Dbcontexts.Groups;
@@ -66,6 +108,13 @@ namespace DataAccess.Repositories.Implementations
                 return Dbcontexts.Groups.FindAll(filter);
             }
 
+            }
+            catch (Exception)
+            {
+
+                Console.WriteLine("Something went wrong");
+                return null;
+            }
 
 
         }

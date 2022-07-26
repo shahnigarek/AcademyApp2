@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Group:Person,IEntity
+    public class Teacher:Person,IEntity
     {
-
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public int MaxSize{ get; set; }
-        public int CurrentSize { get; set; }
-        public Teacher Teacher { get; set; }  
 
+        public string Surname { get; set; }
+
+        public byte Age { get; set; }
+
+        public List<Group> Groups { get; set; } 
     }
 }

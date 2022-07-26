@@ -14,8 +14,10 @@ namespace Manage
             AdminController _adminController = new AdminController();
             GroupController _groupController = new GroupController();
             AdminRepository _adminRepository = new AdminRepository();
+            TeacherController _teacherController = new TeacherController();
+            TeacherRepository _teacherRepository = new TeacherRepository();
 
-          Authentication: var admin = _adminController.Autenticate();
+        Authentication: var admin = _adminController.Autenticate();
 
 
             if (admin != null)
@@ -33,9 +35,16 @@ namespace Manage
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "6-Create Student");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "7-Update Student");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "8-Delete Student");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "9-GetAll Students By Group");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "9-Get All Students By Group");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "10-Get Student By Group");
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "0-Exit");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "11-Create a teacher");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "12-Update teacher");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "13-Delete teacher");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "14-Get All Groups By Teacher");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "15-Add  Group To Teacher");
+                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "0-Exit");
+
+
                     Console.WriteLine();
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkYellow, "Select option");
                     string number = Console.ReadLine();
@@ -43,7 +52,7 @@ namespace Manage
                     bool result = int.TryParse(number, out selectedNumber);
                     if (result)
                     {
-                        if (selectedNumber >= 0 && selectedNumber <= 10)
+                        if (selectedNumber >= 0 && selectedNumber <= 15)
                         {
                             switch (selectedNumber)
                             {
@@ -77,6 +86,9 @@ namespace Manage
                                 case (int)Options.GetStudentByGroup:
                                     _studentController.GetStudentByGroup();
                                     break;
+                                case (int)Options.CreateTeacher:
+                                    _teacherController.CreateTeacher();
+                                        break;
                                 case (int)Options.Exit:
                                     _groupController.Exit();
                                     return;
@@ -106,7 +118,8 @@ namespace Manage
         }
     }
 }
-            
+
+
 
 
 
