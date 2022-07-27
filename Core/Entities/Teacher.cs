@@ -10,7 +10,7 @@ namespace Core.Entities
 {
     public class Teacher:Person,IEntity
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string Name { get; set; }
 
         public string Surname { get; set; }

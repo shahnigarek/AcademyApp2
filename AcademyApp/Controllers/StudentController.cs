@@ -60,7 +60,7 @@ namespace Manage.Controllers
                         dbgroup.CurrentSize++;
 
                         _studentRepository.Create(student);
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{student.ID},Surname:{student.Surname},Age:{student.Age}");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"ID:{student.ID},Name;{student.Name},Surname:{student.Surname},Age:{student.Age}");
                     }
                     else
                     {

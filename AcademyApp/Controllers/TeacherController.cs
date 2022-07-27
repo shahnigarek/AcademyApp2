@@ -45,7 +45,7 @@ namespace Manage.Controllers
             };
             var tutor= _teacherRepository.Create(teacher);
 
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Teacher-{tutor.Name} with surname-{tutor.Surname} and with age-{tutor.Age} was successufully created");
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Teacher-{tutor.Name},tutor's ID-{tutor.ID} with surname-{tutor.Surname} and with age-{tutor.Age} was successufully created");
             
 
             }
@@ -56,6 +56,56 @@ namespace Manage.Controllers
             
             
 
+        }
+        public void DeleteTeacher()
+        {
+
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter the ID of the teacher you want to delete ");
+            string ID = Console.ReadLine();
+            int Id;
+
+            bool result = int.TryParse(ID, out Id);
+
+            var tutor = _teacherRepository.Get(t => t.ID == Id);
+
+            if (tutor != null)
+            {
+                _teacherRepository.Delete(tutor);
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Teacher with ID:{tutor.ID} is deleted");
+
+
+
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Teacher with this ID  doesn't exist");
+            }
+
+        }
+        public void UpdateTeacher()
+        {
+          
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter teacher's ID");
+            string ID = Console.ReadLine();
+            int Id;
+            bool result = int.TryParse(ID, out Id);
+
+            var tutorid = _teacherRepository.Get(t => t.ID == Id);
+            if (tutorid != null)
+            {
+
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new teacher's name:");
+                string newname = Console.ReadLine();
+
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new teacher's surname:");
+                string newsurname = Console.ReadLine();
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new teacher's age:");
+                string newage = Console.ReadLine();
+                byte age;
+                result = byte.TryParse(newage, out age);
+
+
+            }
         }
     }
 }

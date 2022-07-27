@@ -89,6 +89,12 @@ namespace Manage
                                 case (int)Options.CreateTeacher:
                                     _teacherController.CreateTeacher();
                                         break;
+                                case (int)Options.DeleteTeacher:
+                                    _teacherController.DeleteTeacher();
+                                    break;
+                                case (int)Options.UpdateTeacher:
+                                    _teacherController.UpdateTeacher();
+                                    break;
                                 case (int)Options.Exit:
                                     _groupController.Exit();
                                     return;

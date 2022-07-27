@@ -16,7 +16,7 @@ namespace DataAccess.Repositories.Implementations
         {
 
             id++;
-            entity.Id = id;
+            entity.ID = id;
             try
             {
                 Dbcontexts.Teacher.Add(entity);
@@ -97,11 +97,11 @@ namespace DataAccess.Repositories.Implementations
 
             try
             {
-                var teacher = Dbcontexts.Students.Find(t => t.ID == entity.Id);
+                var teacher = Dbcontexts.Students.Find(t => t.ID == entity.ID);
                 if (teacher != null)
                 {
                     
-                    teacher.ID = entity.Id;
+                    teacher.ID = entity.ID;
                     teacher.Surname = entity.Surname;
                     teacher.Age = entity.Age;
                 }
