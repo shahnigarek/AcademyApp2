@@ -24,35 +24,43 @@ namespace Manage.Controllers
         {
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Please enter group name:");
             string name = Console.ReadLine();
-        MaxSize: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Please enter group maxsize");
-            string size = Console.ReadLine();
-            int maxsize;
-            bool result = int.TryParse(size, out maxsize);
-            if (result)
+            var group = _groupRepository.Get(g => g.Name.ToLower() == name.ToLower());
+            if (group == null)
             {
-
-                Group group = new Group
+            MaxSize: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Please enter group maxsize");
+                string size = Console.ReadLine();
+                int maxsize;
+                bool result = int.TryParse(size, out maxsize);
+                if (result)
                 {
-                    Name = name,
-                    MaxSize = maxsize
+
+                    Group newgroup = new Group
+                    {
+                        Name = name,
+                        MaxSize = maxsize
 
 
-                };
-                var createdGroup = _groupRepository.Create(group);
-                
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{createdGroup.Name} with maxsize-{createdGroup.MaxSize} was successufully created");
+                    };
+                    var createdGroup = _groupRepository.Create(group);
 
-            }
-            else
-            {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please,enter right number!!");
-                goto MaxSize;
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{createdGroup.Name} with maxsize-{createdGroup.MaxSize} was successufully created");
+
+                }
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please,enter right number!!");
+                    goto MaxSize;
+
+                }
+
+
             }
         }
         #endregion CreateGroup
         #region AllGroups
         public void AllGroups()
         {
+
             var groups = _groupRepository.GetAll();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "All groups");
             foreach (var group in groups)
@@ -65,8 +73,8 @@ namespace Manage.Controllers
         public void Exit()
         {
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "Thanks for using application");
-            
-        } 
+
+        }
         #endregion Exit
         #region GetGroupName
         public void GetGroupName()
@@ -103,7 +111,7 @@ namespace Manage.Controllers
                 string newsize = Console.ReadLine();
 
                 int maxSize;
-              bool  result = int.TryParse(newsize, out maxSize);
+                bool result = int.TryParse(newsize, out maxSize);
 
                 if (result)
                 {
@@ -137,24 +145,48 @@ namespace Manage.Controllers
         #region DeleteGroup
         public void DeleteGroup()
         {
-             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter group name");
-             string name = Console.ReadLine();
-        var group = _groupRepository.Get(g => g.Name.ToLower() == name.ToLower());
-             if(group != null)
+            var groups = _groupRepository.GetAll();
+            if (groups.Count > 0)
             {
-                _groupRepository.Delete(group);
-             ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{name} is deleted");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "All groups");
+                foreach (var dbGroup in groups)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, $"ID-{dbGroup.ID},Name-{dbGroup.Name}");
+
+                }
+            Id: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter group ID");
+                int choosenid;
+                string id = Console.ReadLine();
+                var result = int.TryParse(id, out choosenid);
+                if (result)
+                {
+                    var group = _groupRepository.Get(g => g.ID == choosenid);
+                    if (group != null)
+                    {
+
+                        string name = group.Name;
+                        _groupRepository.Delete(group);
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{name} is deleted");
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "This group doesn't exist");
+                    }
+                }
 
             }
-              else  
-              {
-                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "This group doesn't exist");
-              }
+            #endregion DeleteGroup
 
         }
-        #endregion DeleteGroup
     }
 }
+
+
+
+
+
+
+
 
 
 

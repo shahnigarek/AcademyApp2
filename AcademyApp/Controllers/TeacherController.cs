@@ -103,11 +103,40 @@ namespace Manage.Controllers
                 string newage = Console.ReadLine();
                 byte age;
                 result = byte.TryParse(newage, out age);
-
-
+                if(result)
+                {
+                   
+                        var newtutor= new Teacher
+                        {
+                            ID = tutorid.ID,
+                            Name = newname,
+                           Surname=newsurname,
+                           Age=age
+                        };
+                        _teacherRepository.Update(newtutor);
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{tutorid.Name},Surname:{tutorid.Surname},Age:{newtutor.Age} is updated to Name: {newtutor.Name}, Surname: {newtutor.Surname},Age:{newtutor.Age} ");
+                }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter number");
+                    }
             }
+
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct ID of teacher");
+                }
+
         }
+        
     }
 }
+
+                    
+
+
+
+
+
 
 
