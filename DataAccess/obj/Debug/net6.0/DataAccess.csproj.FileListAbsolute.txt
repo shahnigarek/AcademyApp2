@@ -118,3 +118,18 @@ C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\DataAccess\obj\
 C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
 C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.pdb
 C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\bin\Debug\net6.0\DataAccess.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\bin\Debug\net6.0\DataAccess.pdb
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\bin\Debug\net6.0\Core.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\bin\Debug\net6.0\Core.pdb
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.AssemblyInfo.cs
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.csproj.CopyComplete
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\refint\DataAccess.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll

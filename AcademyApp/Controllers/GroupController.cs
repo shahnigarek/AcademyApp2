@@ -11,7 +11,6 @@ namespace Manage.Controllers
 {
     public class GroupController
     {
-
         private GroupRepository _groupRepository;
 
         public GroupController()
@@ -97,52 +96,76 @@ namespace Manage.Controllers
         #region UpdateGroup
         public void UpdateGroup()
         {
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter group name:");
-            string name = Console.ReadLine();
-
-            var group = _groupRepository.Get(g => g.Name.ToLower() == name.ToLower());
-            if (group != null)
+            var groups = _groupRepository.GetAll();
+            if (groups.Count > 0)
             {
-                int OldSize = group.MaxSize;
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group name:");
-                string newName = Console.ReadLine();
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "All groups");
+                foreach (var dbgroup in groups)
+                {
+                    Console.WriteLine($"ID-{dbgroup.ID},Name-{dbgroup.Name}");
 
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group maxSize:");
-                string newsize = Console.ReadLine();
-
-                int maxSize;
-                bool result = int.TryParse(newsize, out maxSize);
-
+                }
+            Id: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter group ID");
+                int choosenid;
+                string id = Console.ReadLine();
+                var result = int.TryParse(id, out choosenid);
                 if (result)
                 {
-                    var newGroup = new Group
+                    var group = _groupRepository.Get(g => g.ID == choosenid);
+
+                    if (group != null)
                     {
-                        ID = group.ID,
-                        Name = newName,
-                        MaxSize = maxSize
-                    };
-                    _groupRepository.Update(newGroup);
+                        int OldSize = group.MaxSize;
+                        string oldName = group.Name;
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group name:");
+                        string newName = Console.ReadLine();
 
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{name}, Max size: {OldSize} is updated to Name: {newGroup.Name}, Max size : {newGroup.MaxSize} ");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group maxSize:");
+                        string newsize = Console.ReadLine();
+
+                        int maxSize;
+                        result = int.TryParse(newsize, out maxSize);
+
+                        if (result)
+                        {
+                            var newGroup = new Group
+                            {
+                                ID = group.ID,
+                                Name = newName,
+                                MaxSize = maxSize
+                            };
+                            _groupRepository.Update(newGroup);
+
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{oldName}, Max size: {OldSize} is updated to Name: {newGroup.Name}, Max size : {newGroup.MaxSize} ");
 
 
+                        }
+                        else
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right group maxSize");
+                        }
+
+
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct group name");
+                    }
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right group maxSize");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct ID");
+                    goto Id;
                 }
-
-
 
             }
             else
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct group name");
-            }
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There are no any groups");
 
+            }
         }
-        #endregion UpdateGroup
-        #region DeleteGroup
+    #endregion UpdateGroup
         public void DeleteGroup()
         {
             var groups = _groupRepository.GetAll();
@@ -175,17 +198,35 @@ namespace Manage.Controllers
                 }
 
             }
-            #endregion DeleteGroup
-
         }
+            
     }
+
+
 }
 
 
+       
+ 
 
 
 
 
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+ 
 
 
 

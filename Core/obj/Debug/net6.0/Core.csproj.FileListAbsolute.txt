@@ -94,3 +94,15 @@ C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\Core\obj\Debug\
 C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\refint\Core.dll
 C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.pdb
 C:\Users\shahnigarek\Desktop\AcademyApp2\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\ref\Core.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\bin\Debug\net6.0\Core.deps.json
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\bin\Debug\net6.0\Core.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\bin\Debug\net6.0\Core.pdb
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\refint\Core.dll
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\Core.pdb
+C:\Users\ROG\OneDrive\Рабочий стол\AcademyApp2\AcademyApp2\Core\obj\Debug\net6.0\ref\Core.dll
