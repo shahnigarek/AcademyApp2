@@ -42,7 +42,8 @@ namespace Manage
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "13-Delete teacher");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "14-Get All Groups By Teacher");
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "15-Add  Group To Teacher");
-                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "0-Exit");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "16-Get All");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "0-Exit");
 
 
                     Console.WriteLine();
@@ -94,6 +95,15 @@ namespace Manage
                                     break;
                                 case (int)Options.UpdateTeacher:
                                     _teacherController.UpdateTeacher();
+                                    break;
+                                case (int)Options.GetAll:
+                                    _teacherController.GetAll();
+                                    break;
+                                case (int)Options.AddGroupToTeacher:
+                                    _teacherController.AddGroupToTeacher();
+                                    break;
+                                case (int)Options.GetAllGroupsByTeacher:
+                                    _teacherController.GetAllGroupsByTeacher();
                                     break;
                                 case (int)Options.Exit:
                                     _groupController.Exit();

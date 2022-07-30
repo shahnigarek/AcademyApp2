@@ -30,7 +30,7 @@ namespace Manage.Controllers
             string name = Console.ReadLine();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher surname");
             string surname = Console.ReadLine();
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher age");
+           Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher age");
             string age = Console.ReadLine();
             byte teacherAge;
             bool result = byte.TryParse(age, out teacherAge);
@@ -52,6 +52,7 @@ namespace Manage.Controllers
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right number");
+                goto Age;
             }
             
             
@@ -128,7 +129,168 @@ namespace Manage.Controllers
                 }
 
         }
-        
+
+        public void GetAll()
+        {
+            var teachers = _teacherRepository.GetAll();
+            if (teachers.Count > 0)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, "All teacher list");
+
+                foreach (var teacher in teachers)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id - {teacher.ID}, Fullname - {teacher.Name} {teacher.Surname}");
+                }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no teacher,please create it ");
+            }
+        }
+        public void AddGroupToTeacher()
+        {
+            var groups = _groupRepository.GetAll();
+            if (groups.Count > 0)
+            {
+                var teachers = _teacherRepository.GetAll();
+                if (teachers.Count > 0)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "All teachers list");
+
+                    foreach (var teacher in teachers)
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id - {teacher.ID}, Fullname - {teacher.Name} {teacher.Surname}");
+                    }
+
+                Id: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter teacher id:");
+                    string id = Console.ReadLine();
+
+                    int tutorID;
+                    var result = int.TryParse(id, out tutorID);
+
+                    if (result)
+                    {
+                        var teacher = _teacherRepository.Get(t => t.ID == tutorID);
+                        if (teacher != null)
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "All groups list");
+
+                            foreach (var group in groups)
+                            {
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, $"Id - {group.ID}, Name - {group.Name}");
+                            }
+
+                        GroupID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter group id:");
+                            string groupid = Console.ReadLine();
+
+                            int groupID;
+                            result = int.TryParse(groupid, out groupID);
+                            if (result)
+                            {
+                                var group = _groupRepository.Get(g => g.ID == groupID);
+                                if (group != null)
+                                {
+                                    if (group.Teacher == null)
+                                    {
+                                        teacher.Groups.Add(group);
+                                        group.Teacher = teacher;
+                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{group.Name} is successfully added to {teacher.Name}");
+                                    }
+                                    else
+                                    {
+                                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"This group has already teacher - {group.Teacher.Name} {group.Teacher.Surname}");
+                                    }
+                                }
+                                else
+                                {
+                                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no group with this ID,please enter another one ");
+                                    goto GroupID;
+                                }
+                            }
+                            else
+                            {
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter id in correct form");
+                                goto GroupID;
+                            }
+                        }
+                        else
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Teacher doesn't exist with this id");
+                            goto Id;
+                        }
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter id in correct form");
+                        goto Id;
+                    }
+                }
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There isn't any  teacher");
+                }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "You must create a group before adding group to teacher");
+            }
+        }
+
+        public void GetAllGroupsByTeacher()
+        {
+            var teachers = _teacherRepository.GetAll();
+            if (teachers.Count > 0)
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "All teachers list");
+
+                foreach (var teacher in teachers)
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id - {teacher.ID}, Fullname - {teacher.Name} {teacher.Surname}");
+                }
+
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter teacher id:");
+                string id = Console.ReadLine();
+
+                int teacherId;
+                var result = int.TryParse(id, out teacherId);
+
+                if (result)
+                {
+                    var teacher = _teacherRepository.Get(t => t.ID == teacherId);
+                    if (teacher != null)
+                    {
+                        var groups = _groupRepository.GetAll(g => g.Teacher != null ? g.Teacher.ID == teacher.ID : false);
+                        if (groups.Count > 0)
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Cyan, "The groups of teacher");
+
+                            foreach (var group in groups)
+                            {
+                                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Id - {group.ID}, Name - {group.Name}");
+                            }
+                        }
+                        else
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Teacher has no group");
+                        }
+                    }
+                    else
+                    {
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There is no teacher with this ID,please try again :)");
+                    }
+                }
+                else
+                {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter id in correct form");
+                }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "There isn't any teacher");
+            }
+        }
+
+
     }
 }
 

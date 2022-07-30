@@ -24,7 +24,8 @@ namespace Core.Constants
         UpdateTeacher,  
         DeleteTeacher,
         GetAllGroupsByTeacher,
-        AddGroupToTeacher
+        AddGroupToTeacher,
+        GetAll
 
     }
    

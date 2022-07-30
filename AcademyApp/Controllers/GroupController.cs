@@ -40,7 +40,7 @@ namespace Manage.Controllers
 
 
                     };
-                    var createdGroup = _groupRepository.Create(group);
+                    var createdGroup = _groupRepository.Create(newgroup);
 
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{createdGroup.Name} with maxsize-{createdGroup.MaxSize} was successufully created");
 
