@@ -25,28 +25,28 @@ namespace Manage.Controllers
         }
         public void CreateTeacher()
         {
-         
+
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher name");
             string name = Console.ReadLine();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher surname");
             string surname = Console.ReadLine();
-           Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher age");
+        Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter teacher age");
             string age = Console.ReadLine();
             byte teacherAge;
             bool result = byte.TryParse(age, out teacherAge);
             if (result)
             {
 
-            Teacher teacher = new Teacher
-            {
-                Name = name,
-                Age = teacherAge,
-                Surname = surname
-            };
-            var tutor= _teacherRepository.Create(teacher);
+                Teacher teacher = new Teacher
+                {
+                    Name = name,
+                    Age = teacherAge,
+                    Surname = surname
+                };
+                var tutor = _teacherRepository.Create(teacher);
 
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Teacher-{tutor.Name},tutor's ID-{tutor.ID} with surname-{tutor.Surname} and with age-{tutor.Age} was successufully created");
-            
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Teacher-{tutor.Name},tutor's ID-{tutor.ID} with surname-{tutor.Surname} and with age-{tutor.Age} was successufully created");
+
 
             }
             else
@@ -54,13 +54,13 @@ namespace Manage.Controllers
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right number");
                 goto Age;
             }
-            
-            
+
+
 
         }
         public void DeleteTeacher()
         {
-
+            GetAll();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter the ID of the teacher you want to delete ");
             string ID = Console.ReadLine();
             int Id;
@@ -85,7 +85,7 @@ namespace Manage.Controllers
         }
         public void UpdateTeacher()
         {
-          
+            GetAll();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter teacher's ID");
             string ID = Console.ReadLine();
             int Id;
@@ -100,36 +100,36 @@ namespace Manage.Controllers
 
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new teacher's surname:");
                 string newsurname = Console.ReadLine();
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new teacher's age:");
+            Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new teacher's age:");
                 string newage = Console.ReadLine();
                 byte age;
                 result = byte.TryParse(newage, out age);
-                if(result)
+                if (result)
                 {
-                   
-                        var newtutor= new Teacher
-                        {
-                            ID = tutorid.ID,
-                            Name = newname,
-                           Surname=newsurname,
-                           Age=age
-                        };
-                        _teacherRepository.Update(newtutor);
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{tutorid.Name},Surname:{tutorid.Surname},Age:{newtutor.Age} is updated to Name: {newtutor.Name}, Surname: {newtutor.Surname},Age:{newtutor.Age} ");
-                }
-                    else
-                    {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter number");
-                    }
-            }
 
+                    var newtutor = new Teacher
+                    {
+                        ID = tutorid.ID,
+                        Name = newname,
+                        Surname = newsurname,
+                        Age = age
+                    };
+                    _teacherRepository.Update(newtutor);
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name:{tutorid.Name},Surname:{tutorid.Surname},Age:{newtutor.Age} is updated to Name: {newtutor.Name}, Surname: {newtutor.Surname},Age:{newtutor.Age} ");
+                }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct ID of teacher");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter number");
+                    goto Age;
                 }
+            }
+
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct ID of teacher");
+            }
 
         }
-
         public void GetAll()
         {
             var teachers = _teacherRepository.GetAll();
@@ -180,9 +180,8 @@ namespace Manage.Controllers
                                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, $"Id - {group.ID}, Name - {group.Name}");
                             }
 
-                        GroupID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter group id:");
+                          GroupID: ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter group id:");
                             string groupid = Console.ReadLine();
-
                             int groupID;
                             result = int.TryParse(groupid, out groupID);
                             if (result)
@@ -190,7 +189,7 @@ namespace Manage.Controllers
                                 var group = _groupRepository.Get(g => g.ID == groupID);
                                 if (group != null)
                                 {
-                                    if (group.Teacher == null)
+                                    if (group.Teacher != null)
                                     {
                                         teacher.Groups.Add(group);
                                         group.Teacher = teacher;
@@ -235,7 +234,6 @@ namespace Manage.Controllers
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "You must create a group before adding group to teacher");
             }
         }
-
         public void GetAllGroupsByTeacher()
         {
             var teachers = _teacherRepository.GetAll();
@@ -291,10 +289,12 @@ namespace Manage.Controllers
         }
 
 
+
+
     }
 }
 
-                    
+
 
 
 

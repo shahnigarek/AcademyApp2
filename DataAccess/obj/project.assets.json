@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\DataAccess\\DataAccess.csproj",
+      "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\ROG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\DataAccess\\obj\\",
+      "outputPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ROG\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj": {
-              "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj"
+            "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj"
             }
           }
         }

@@ -30,64 +30,75 @@ namespace Manage.Controllers
                 string name = Console.ReadLine();
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter student surname");
                 string surname = Console.ReadLine();
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter student age");
+            Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter student age");
                 string age = Console.ReadLine();
                 byte studentAge;
                 bool result = byte.TryParse(age, out studentAge);
-
-            AllGroupsList: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "All groups");
-
-                foreach (var group in groups)
+                if (result)
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, group.Name);
-                }
+                AllGroupsList: ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "All groups");
 
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter group name");
-                string groupName = Console.ReadLine();
-
-                var dbgroup = _groupRepository.Get(g => g.Name.ToLower() == groupName.ToLower());
-                if (dbgroup != null)
-                {
-                    if (dbgroup.MaxSize > dbgroup.CurrentSize)
+                    foreach (var group in groups)
                     {
-                        var student = new Student
-                        {
-                            Name = name,
-                            Age = studentAge,
-                            Surname = surname,
-                            Group = dbgroup
-                        };
-                        dbgroup.CurrentSize++;
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, group.Name);
+                    }
 
-                        _studentRepository.Create(student);
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"ID:{student.ID},Name;{student.Name},Surname:{student.Surname},Age:{student.Age}");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "Enter group name");
+                    string groupName = Console.ReadLine();
+
+                    var dbgroup = _groupRepository.Get(g => g.Name.ToLower() == groupName.ToLower());
+                    if (dbgroup != null)
+                    {
+                        if (dbgroup.MaxSize > dbgroup.CurrentSize)
+                        {
+                            var student = new Student
+                            {
+                                Name = name,
+                                Age = studentAge,
+                                Surname = surname,
+                                Group = dbgroup
+                            };
+                            dbgroup.CurrentSize++;
+
+                            _studentRepository.Create(student);
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"ID:{student.ID},Name;{student.Name},Surname:{student.Surname},Age:{student.Age}");
+                        }
+                        else
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"Group is full,group's maxsize:{dbgroup.MaxSize}");
+
+                        }
+
+
+
+
                     }
                     else
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, $"Group is full,group's maxsize:{dbgroup.MaxSize}");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Including group doesn't exist");
+                        goto AllGroupsList;
 
                     }
-
-
-
-
                 }
                 else
                 {
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Including group doesn't exist");
-                    goto AllGroupsList;
-
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter number");
+                    goto Age;
                 }
+
+
+
             }
+
             else
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please create group before inputing info about student");
             }
 
-
         }
         public void DeleteStudent()
         {
+            GetAllStudentsByGroup();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Yellow, "Enter the ID of the student you want to delete ");
             string ID = Console.ReadLine();
             int Id;
@@ -100,8 +111,8 @@ namespace Manage.Controllers
             {
                 _studentRepository.Delete(student);
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $" student with ID:{student.ID} is deleted");
-               
-                
+
+
 
             }
             else
@@ -133,7 +144,7 @@ namespace Manage.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "All students of the group:");
                     foreach (var groupStudent in groupStudents)
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{groupStudent.Name},{groupStudent.Surname},{groupStudent.Age}");
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"id:{groupStudent.ID},Name:{groupStudent.Name},Surname:{groupStudent.Surname},Age:{groupStudent.Age}");
                     }
                 }
                 else
@@ -147,7 +158,7 @@ namespace Manage.Controllers
                 goto GroupAllList;
             }
         }
-        public  void UpdateStudent()
+        public void UpdateStudent()
         {
             GetAllStudentsByGroup();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter student ID");
@@ -164,63 +175,67 @@ namespace Manage.Controllers
 
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new student surname:");
                 string newsurname = Console.ReadLine();
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new student age:");
+               Age: ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new student age:");
                 string newage = Console.ReadLine();
                 byte age;
-                 result = byte.TryParse(newage, out age);
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group name");
-                string newGroupName= Console.ReadLine();
-
-                if (studentid.Group.Name.ToLower() == newGroupName)
+                result = byte.TryParse(newage, out age);
+                if (result)
                 {
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group name");
+                    string newGroupName = Console.ReadLine();
 
-                    studentid.Name = newname;
-                    studentid.Surname = newsurname;
-                    studentid.Age = age;
-                    _studentRepository.Update(studentid);
-
-
-
-                }
-                else
-                {
-                    studentid.Name = newname;
-                    studentid.Surname = newsurname;
-                    studentid.Age = age;
-                    
-                    var newgroup = _groupRepository.Get(g => g.Name.ToLower() == newGroupName.ToLower());
-                    if (newgroup!=null)
+                    if (studentid.Group.Name.ToLower() == newGroupName)
                     {
-                        studentid.Group.CurrentSize--;
-                        studentid.Group = newgroup;
-                    studentid.Group.CurrentSize++;
-                    _studentRepository.Update(studentid);
+
+                        studentid.Name = newname;
+                        studentid.Surname = newsurname;
+                        studentid.Age = age;
+                        _studentRepository.Update(studentid);
+
+
 
                     }
                     else
                     {
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right group name");
-                        
+                        studentid.Name = newname;
+                        studentid.Surname = newsurname;
+                        studentid.Age = age;
 
+                        var newgroup = _groupRepository.Get(g => g.Name.ToLower() == newGroupName.ToLower());
+                        if (newgroup != null)
+                        {
+                            studentid.Group.CurrentSize--;
+                            studentid.Group = newgroup;
+                            studentid.Group.CurrentSize++;
+                            _studentRepository.Update(studentid);
+
+                        }
+                        else
+                        {
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right group name");
+
+
+                        }
                     }
                 }
-            }
-              else
+                else
                 {
-
-                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right ID");
+                    ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter number");
+                    goto Age;
                 }
 
+            }
+            else
+            {
 
-
-
-
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right ID");
+            }
         }
-         public void GetStudentByGroup()
+        public void GetStudentByGroup()
         {
             var groups = _groupRepository.GetAll();
 
-        ConsoleHelper .WriteTextWithColor(ConsoleColor.DarkMagenta, "All groups");
+            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, "All groups");
 
             foreach (var group in groups)
             {
@@ -241,18 +256,24 @@ namespace Manage.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkMagenta, $"Studentname is {name},Studentsurname is {student.Surname},StudentAge is{student.Age}");
                 }
 
-                
 
-            } 
+
+            }
         }
-        
-       
-       
+
+
+
+
 
 
 
     }
 }
+
+
+
+
+
 
 
 

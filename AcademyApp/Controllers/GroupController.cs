@@ -78,6 +78,7 @@ namespace Manage.Controllers
         #region GetGroupName
         public void GetGroupName()
         {
+            AllGroups();
             ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkCyan, "Enter group name");
             string name = Console.ReadLine();
 
@@ -120,7 +121,7 @@ namespace Manage.Controllers
                         ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group name:");
                         string newName = Console.ReadLine();
 
-                        ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group maxSize:");
+                       maxSize: ConsoleHelper.WriteTextWithColor(ConsoleColor.Blue, "Enter new group maxSize:");
                         string newsize = Console.ReadLine();
 
                         int maxSize;
@@ -143,6 +144,7 @@ namespace Manage.Controllers
                         else
                         {
                             ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please enter right group maxSize");
+                            goto maxSize;
                         }
 
 
@@ -165,8 +167,10 @@ namespace Manage.Controllers
 
             }
         }
-    #endregion UpdateGroup
+        #endregion UpdateGroup
+        #region DeleteGroup
         public void DeleteGroup()
+        
         {
             var groups = _groupRepository.GetAll();
             if (groups.Count > 0)
@@ -199,7 +203,8 @@ namespace Manage.Controllers
 
             }
         }
-            
+        #endregion
+
     }
 
 

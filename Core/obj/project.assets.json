@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\ROG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\AcademyApp2\\AcademyApp2\\Core\\obj\\",
+      "outputPath": "C:\\Users\\ROG\\OneDrive\\Рабочий стол\\essays\\AcademyApp2\\AcademyApp2\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ROG\\AppData\\Roaming\\NuGet\\NuGet.Config",
